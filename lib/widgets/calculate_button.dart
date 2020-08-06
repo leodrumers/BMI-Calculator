@@ -4,9 +4,11 @@ import '../constans.dart';
 
 class CalculateButton extends StatelessWidget {
   final Function onPress;
+  final String text;
   const CalculateButton({
     Key key,
     this.onPress,
+    this.text,
   }) : super(key: key);
 
   @override
@@ -18,10 +20,10 @@ class CalculateButton extends StatelessWidget {
           onPressed: onPress,
           color: kAccentColor,
           child: Text(
-            'Calculate',
+            text,
             style: Theme.of(context).textTheme.headline5,
           ),
-          disabledColor: Colors.white,
+          disabledColor: Colors.blueGrey,
         ),
       ),
     );

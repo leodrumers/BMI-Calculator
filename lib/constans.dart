@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = const Color(0xFF0A0E21);
@@ -30,11 +31,11 @@ ThemeData _customThemeDark() {
 
 TextTheme _buildTextTheme(TextTheme base) {
   return base.copyWith(
+    headline1: TextStyle(fontWeight: FontWeight.bold),
     headline2: TextStyle(
       color: Colors.white,
       fontWeight: FontWeight.w900,
     ),
-    headline5: TextStyle(fontWeight: FontWeight.w500),
     bodyText1: TextStyle(
       fontSize: 24,
       color: Colors.white,

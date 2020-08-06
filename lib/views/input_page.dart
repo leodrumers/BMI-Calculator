@@ -225,6 +225,7 @@ class _InputPageState extends State<InputPage> {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               CalculateButton(
+                text: 'Calculate',
                 onPress: () {
                   Navigator.push(
                     context,

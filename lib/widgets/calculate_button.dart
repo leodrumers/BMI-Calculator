@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'constans.dart';
+import '../constans.dart';
 
 class CalculateButton extends StatelessWidget {
+  final Function onPress;
   const CalculateButton({
     Key key,
+    this.onPress,
   }) : super(key: key);
 
   @override
@@ -13,7 +15,7 @@ class CalculateButton extends StatelessWidget {
       child: ButtonTheme(
         height: 70,
         child: RaisedButton(
-          onPressed: () {},
+          onPressed: onPress,
           color: kAccentColor,
           child: Text(
             'Calculate',

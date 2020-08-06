@@ -1,12 +1,14 @@
-import 'package:bmi_calculator/calculate_button.dart';
 import 'package:bmi_calculator/constans.dart';
+import 'package:bmi_calculator/views/result_page.dart';
+import 'package:bmi_calculator/widgets/round_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-import 'content_card.dart';
-import 'custom_card.dart';
+import '../widgets/calculate_button.dart';
+import '../widgets/content_card.dart';
+import '../widgets/custom_card.dart';
 
 enum Gender { male, female }
 
@@ -23,7 +25,6 @@ class _InputPageState extends State<InputPage> {
   int _height = 175;
   int _weight = 60;
   int _age = 20;
-  bool _buttonPressed = false;
 
   @override
   Widget build(BuildContext context) {
@@ -223,32 +224,18 @@ class _InputPageState extends State<InputPage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CalculateButton(),
+              CalculateButton(
+                onPress: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ResultPage()),
+                  );
+                },
+              ),
             ],
           )
         ],
       ),
-    );
-  }
-}
-
-class RoundButton extends StatelessWidget {
-  final IconData icon;
-  final Function onPress;
-  final Function onLongPress;
-
-  const RoundButton({Key key, this.icon, this.onPress, this.onLongPress})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPress,
-      onLongPress: onLongPress,
-      child: Icon(icon),
-      constraints: BoxConstraints.tightFor(width: 56.0, height: 56.0),
-      shape: CircleBorder(),
-      fillColor: Colors.white30,
     );
   }
 }

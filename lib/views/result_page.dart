@@ -1,21 +1,34 @@
-import 'package:bmi_calculator/string_constans.dart';
+import 'package:bmi_calculator/constans/string_constans.dart';
 import 'package:bmi_calculator/widgets/calculate_button.dart';
 import 'package:bmi_calculator/widgets/custom_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ResultPage extends StatelessWidget {
+  final String bmi;
+  final String result;
+  final String interpretation;
+
+  const ResultPage({
+    Key key,
+    @required this.bmi,
+    @required this.result,
+    @required this.interpretation,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(kAppName),
+        centerTitle: true,
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Expanded(
+            flex: 1,
             child: Container(
               padding: EdgeInsets.only(left: 16.0),
               child: Text(
@@ -34,15 +47,15 @@ class ResultPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Text(
-                      'Weight',
+                      result,
                       style: kResultTextStyle,
                     ),
                     Text(
-                      '18.3',
+                      bmi,
                       style: Theme.of(context).textTheme.headline1,
                     ),
                     Text(
-                      'This is your result calculate for you entries in the previous page',
+                      interpretation,
                       textAlign: TextAlign.center,
                       style: Theme.of(context).textTheme.headline5,
                     ),
@@ -52,12 +65,14 @@ class ResultPage extends StatelessWidget {
             ),
           ),
           Expanded(
-              child: CalculateButton(
-            text: 'Re-Calculate',
-            onPress: () {
-              Navigator.pop(context);
-            },
-          ))
+            flex: 1,
+            child: CalculateButton(
+              text: 'Re-Calculate',
+              onPress: () {
+                Navigator.pop(context);
+              },
+            ),
+          )
         ],
       ),
     );

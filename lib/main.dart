@@ -1,7 +1,8 @@
-import 'package:bmi_calculator/constans.dart';
-import 'package:bmi_calculator/string_constans.dart';
 import 'package:flutter/material.dart';
 
+import 'file:///C:/Users/Leo/Documents/flutter/appbrewery/bmi_calculator/lib/constans/constans.dart';
+
+import 'constans/string_constans.dart';
 import 'views/input_page.dart';
 
 void main() {

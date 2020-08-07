@@ -1,10 +1,12 @@
-import 'package:bmi_calculator/constans.dart';
+import 'package:bmi_calculator/model/calculator_brain.dart';
 import 'package:bmi_calculator/views/result_page.dart';
 import 'package:bmi_calculator/widgets/round_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'file:///C:/Users/Leo/Documents/flutter/appbrewery/bmi_calculator/lib/constans/constans.dart';
 
 import '../widgets/calculate_button.dart';
 import '../widgets/content_card.dart';
@@ -224,14 +226,24 @@ class _InputPageState extends State<InputPage> {
             crossAxisAlignment: CrossAxisAlignment.end,
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              CalculateButton(
-                text: 'Calculate',
-                onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => ResultPage()),
-                  );
-                },
+              Expanded(
+                flex: 1,
+                child: CalculateButton(
+                  text: 'Calculate',
+                  onPress: () {
+                    CalculatorBrain calc =
+                        CalculatorBrain(height: _height, weight: _weight);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ResultPage(
+                                bmi: calc.getBMI(),
+                                result: calc.getIndicator(),
+                                interpretation: calc.getInterpretation(),
+                              )),
+                    );
+                  },
+                ),
               ),
             ],
           )

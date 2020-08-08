@@ -1,7 +1,12 @@
-# BMI Calculator
+# Flutter Examples
 
-Flutter application to calculate de BMI for women a men. Simple and easy to use
+This project is a bunch of flutter applications with multiple examples to learn how to use a different kind of flutter widgets and utilities.
 
 ## Getting Started
 
-This flutter app will content more features
+There is the applications list:
+
+* BMI Calculator
+* Geolocation App
+* Quizzler App
+* And soon much more examples

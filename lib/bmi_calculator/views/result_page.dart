@@ -1,6 +1,6 @@
-import 'package:bmi_calculator/constans/string_constans.dart';
-import 'package:bmi_calculator/widgets/calculate_button.dart';
-import 'package:bmi_calculator/widgets/custom_card.dart';
+import 'package:bmi_calculator/bmi_calculator/widgets/calculate_button.dart';
+import 'package:bmi_calculator/bmi_calculator/widgets/custom_card.dart';
+import 'package:bmi_calculator/utilities/string_constans.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +20,7 @@ class ResultPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(kAppName),
+        title: Text(kBMIApp),
         centerTitle: true,
       ),
       body: Column(

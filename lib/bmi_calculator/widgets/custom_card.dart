@@ -1,6 +1,5 @@
+import 'package:bmi_calculator/utilities/constans.dart';
 import 'package:flutter/material.dart';
-
-import '../constans/constans.dart';
 
 class CustomCard extends StatelessWidget {
   CustomCard({

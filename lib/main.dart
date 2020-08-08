@@ -1,9 +1,8 @@
+import 'package:bmi_calculator/utilities/constans.dart';
+import 'package:bmi_calculator/utilities/string_constans.dart';
 import 'package:flutter/material.dart';
 
-import 'file:///C:/Users/Leo/Documents/flutter/appbrewery/bmi_calculator/lib/constans/constans.dart';
-
-import 'constans/string_constans.dart';
-import 'views/input_page.dart';
+import 'bmi_calculator/views/input_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -15,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: kAppName,
+      title: kBMIApp,
       theme: appTheme,
-      home: InputPage(title: kAppName),
+      home: InputPage(title: kBMIApp),
     );
   }
 }

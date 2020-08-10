@@ -1,8 +1,8 @@
 import 'package:bmi_calculator/api_keys.dart';
 import 'package:bmi_calculator/location/services/networking.dart';
 import 'package:bmi_calculator/location/views/weather_screen.dart';
-import 'package:bmi_calculator/utilities/main_drawer.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import '../services/location.dart';
 
@@ -31,7 +31,9 @@ class _LocationScreenState extends State<LocationScreen> {
     var weatherData = await networkHelper.getData();
 
     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return WeatherScreen();
+      return WeatherScreen(
+        locationWeather: weatherData,
+      );
     }));
   }
 
@@ -44,11 +46,22 @@ class _LocationScreenState extends State<LocationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: MainAppDrawer(),
-      appBar: AppBar(
-        title: Text(widget.title),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Expanded(
+            flex: 5,
+            child: SpinKitChasingDots(
+              color: Colors.white,
+              size: 100,
+            ),
+          ),
+          Expanded(
+            flex: 1,
+            child: Text('Loading data, please wait...'),
+          ),
+        ],
       ),
-      body: Center(),
     );
   }
 }

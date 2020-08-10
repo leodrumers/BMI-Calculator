@@ -2,7 +2,7 @@ import 'package:bmi_calculator/bmi_calculator/views/input_page.dart';
 import 'package:bmi_calculator/utilities/string_constans.dart';
 import 'package:flutter/material.dart';
 
-import '../location/location_screen.dart';
+import '../location/views/loading_screen.dart';
 
 class MainAppDrawer extends StatelessWidget {
   const MainAppDrawer({

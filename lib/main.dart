@@ -2,7 +2,7 @@ import 'package:bmi_calculator/utilities/constans.dart';
 import 'package:bmi_calculator/utilities/string_constans.dart';
 import 'package:flutter/material.dart';
 
-import 'bmi_calculator/views/input_page.dart';
+import 'file:///C:/Users/Leo/Documents/flutter/appbrewery/bmi_calculator/lib/location/views/loading_screen.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,9 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: kBMIApp,
+      title: kAppName,
       theme: appTheme,
-      home: InputPage(title: kBMIApp),
+      home: LocationScreen(title: kLocationApp),
     );
   }
 }

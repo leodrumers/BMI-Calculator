@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+const kAppName = 'Flutter examples';
 const kBMIApp = 'BMI Calculator';
 const kLocationApp = 'Location App';
 

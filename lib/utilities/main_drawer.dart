@@ -25,7 +25,7 @@ class MainAppDrawer extends StatelessWidget {
               Navigator.pushReplacement(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => LocationScreen(
+                    builder: (context) => WeatherLoadingScreen(
                       title: kLocationApp,
                     ),
                   ));

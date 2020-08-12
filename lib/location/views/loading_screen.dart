@@ -1,40 +1,31 @@
-import 'package:bmi_calculator/api_keys.dart';
-import 'package:bmi_calculator/location/services/networking.dart';
+import 'package:bmi_calculator/location/services/weather.dart';
 import 'package:bmi_calculator/location/views/weather_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
-import '../services/location.dart';
-
-class LocationScreen extends StatefulWidget {
+class WeatherLoadingScreen extends StatefulWidget {
   final String title;
 
-  const LocationScreen({Key key, this.title}) : super(key: key);
+  const WeatherLoadingScreen({Key key, this.title}) : super(key: key);
 
   @override
-  _LocationScreenState createState() => _LocationScreenState();
+  _WeatherLoadingScreenState createState() => _WeatherLoadingScreenState();
 }
 
-class _LocationScreenState extends State<LocationScreen> {
+class _WeatherLoadingScreenState extends State<WeatherLoadingScreen> {
   double lon;
   double lat;
 
   void getWeather() async {
-    Location location = Location();
-    await location.getLocation();
-    lon = location.longitude;
-    lat = location.latitude;
-
-    String url =
-        'http://api.openweathermap.org/data/2.5/weather?lat=$lat&lon=$lon&appid=$kWeatherApiKey';
-    NetworkHelper networkHelper = NetworkHelper(url);
-    var weatherData = await networkHelper.getData();
-
-    Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-      return WeatherScreen(
-        locationWeather: weatherData,
-      );
-    }));
+    var weatherData = await WeatherModel().getWeatherLocation();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) {
+        return WeatherScreen(
+          locationWeather: weatherData,
+        );
+      }),
+    );
   }
 
   @override
